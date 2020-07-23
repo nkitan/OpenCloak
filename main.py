@@ -4,7 +4,12 @@ import numpy
 import time
 
 fps = 30
-wait = int((1/fps)*1000.00)
+wait = 33.33
+
+def updtFps(fps):
+    if(fps < 0)
+     fps = 1
+    wait = int((1/fps)*1000.00)
 
 def empty(a):
     pass
@@ -24,7 +29,7 @@ def getBase():
 def colorPicker(): 
     cam = cv2.VideoCapture(0)
     cv2.namedWindow("OPTIONS")
-    cv2.resizeWindow("OPTIONS",640,480)
+    cv2.resizeWindow("OPTIONS",640,290)
     
     cv2.createTrackbar("Hue <","OPTIONS",0,179,empty)
     cv2.createTrackbar("Hue >","OPTIONS",179,179,empty)
@@ -57,14 +62,16 @@ def colorPicker():
                 return lower,upper
 
 
-
 def main():
     base = getBase()
     lower,upper=colorPicker()
+    cv2.namedWindow("options")
+    cv2.resizeWindow("options",480,100)
+    cv2.createTrackbar("fps","options",0,500,updtFps)
 
     cap = cv2.VideoCapture(0)
     while True:
-        ret,frame = cap.read()
+        ret,frame = cap.read() 
         if ret:
             HSVimg = cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
             cloak = cv2.inRange(HSVimg,lower,upper)
@@ -83,10 +90,10 @@ def main():
             cv2.imshow("RESULT",result)
 
         if cv2.waitKey(wait) and 0xFF == ord('q'):
-                break 
-    
+            cap.release()
+            cv2.destroyAllWindows()
+            break 
+   
 
 if __name__ == '__main__':
     main()
-
-    
