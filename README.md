@@ -1,6 +1,8 @@
 # OpenCloak
  
-harry potter's invisibility cloak, implemented using OpenCV                             
+harry potter's invisibility cloak, implemented using OpenCV
+----------------------------------------------------------
+
 utilizes OpenCV's color detection to detect cloth / object of the specified color and then replaces the part with a base image                
 requires OpenCV and numpy
 
