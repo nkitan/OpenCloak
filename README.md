@@ -1,17 +1,18 @@
-# OpenCloak
- 
-harry potter's invisibility cloak, implemented using OpenCV
-----------------------------------------------------------
+> # openCloak
+> ***the invisibility cloak from harry potter, now in real life***
 
-utilizes OpenCV's color detection to detect cloth / object of the specified color and then replaces the part with a base image                
-requires OpenCV and numpy
 
-features
----------
-select a base image dynamically upon user request.                           
+utilizes color detection to detect cloth / object of the specified color and then replaces the part with a base image
+
+**requires OpenCV and numpy**
+
+### features
+
+select a base image at the beginning.                           
 select cloak color with fine tuning.                                          
-variable fps
+variable fps for generating data sets.
 
-# Setup
+## Setup
 
-run main.py and you're good to go
+make sure you have opencv and numpy    
+run main.py
